@@ -25,3 +25,9 @@ body{
     border-radius: 5px;
 
 }
+.btn{
+    background-color:rgb(5, 85, 170);
+    border-radius: 5px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: antiquewhite;
+}

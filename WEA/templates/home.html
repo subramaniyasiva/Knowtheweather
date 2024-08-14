@@ -6,8 +6,35 @@
     </head>
     <body>
         <div class="box">
-            <label for="location">Enter Your Weather &#128205;</label><br><br>
+            <label for="location">Enter Your Location &#128205;</label><br><br>
             <input type="text" id="location" placeholder="Type here"><br><br>
+            <button onclick="gw()" class="btn">Get info</button><br><br>
         </div>
+        <script>
+            function gw() {
+                const apiKey = "919db4a6e4538c824af0f54d58fafda8";
+                const city = document.getElementById('location').value;
+                
+                if (!city) {
+                    alert('Please enter a city!!!');
+                    return;
+                }
+                
+                const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+                
+                // Fetch the weather data
+                fetch(currentWeatherUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);  // Log the data to see if it's being fetched correctly
+                        alert(`Weather in ${city}: ${data.weather[0].description}`);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Failed to fetch weather data. Please try again.');
+                    });
+            }
+            
+        </script>
     </body>
 </html>
